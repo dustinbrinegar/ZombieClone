@@ -2,7 +2,6 @@
 #define GAME_H_INCLUDED
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include <vector>
 
 enum gameStates
 {
@@ -20,18 +19,12 @@ public:
     void initialize();
     void toMainMenu();
     void pause();
-    gameStates getGameState();
-    void setGameState(gameStates newState);
-    void mainMenuState();
-    void pausedState();
-    void playingState();
-    void loseState();
+
     Game();
     ~Game();
 private:
     gameStates gameState;
-    //std::vector<std::vector<> objToDraw;
-
+   // sf::RenderWindow window(sf::VideoMode(800, 600), "ZombieClone");
 
 };
 
