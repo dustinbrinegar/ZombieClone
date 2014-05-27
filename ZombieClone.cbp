@@ -31,7 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="../../SFML 2.1/include" />
 		</Compiler>
+		<Linker>
+			<Add library="..\..\SFML 2.1\lib\libsfml-graphics.a" />
+			<Add library="..\..\SFML 2.1\lib\libsfml-window.a" />
+			<Add library="..\..\SFML 2.1\lib\libsfml-system.a" />
+			<Add directory="../../SFML 2.1/lib" />
+		</Linker>
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
