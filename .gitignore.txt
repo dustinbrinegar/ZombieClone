@@ -2,3 +2,6 @@
 *.exe
 bin
 obj
+*.depend
+*.layout
+*.cbp
