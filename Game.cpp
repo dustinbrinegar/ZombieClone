@@ -3,15 +3,14 @@
 
 Game::Game()
 {
+    this->gameState = MAIN_MENU;
 }
 Game::~Game()
 {
-
 }
 void Game::exit(sf::Window &window)
     {
         window.close();
-
     }
 
 void Game::initialize()
@@ -28,5 +27,33 @@ void Game::pause()
 
 }
 
+gameStates Game::getGameState()
+{
+    return this->gameState;
+}
+
+void Game::setGameState(gameStates newGameState)
+{
+    this->gameState = newGameState;
+}
+
+void Game::mainMenuState()
+{
 
 
+}
+
+void Game::pausedState()
+{
+
+}
+
+void Game::playingState()
+{
+
+}
+
+void Game::loseState()
+{
+
+}
