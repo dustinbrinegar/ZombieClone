@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
+#include "Unit.h"
 #include <iostream>
 
 int main()
@@ -15,7 +16,25 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 game.exit(window);
+
+            switch (game.getGameState())
+            {
+                case MAIN_MENU:
+                    break;
+                case PLAYING:
+                    break;
+                case PAUSED:
+                    break;
+                case LOSE:
+                    break;
+                default:
+                    std::cout << "Invalid Game State" << std::endl;
+
+            }
+
         }
+
+
 
         window.clear();
         window.display();
