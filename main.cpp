@@ -2,11 +2,13 @@
 #include "Game.h"
 #include "Unit.h"
 #include <iostream>
+#include "Player.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "ZombieClone");
     Game game;
+    Player player;
 
     while (window.isOpen())
     {
@@ -22,6 +24,7 @@ int main()
                 case MAIN_MENU:
                     break;
                 case PLAYING:
+                    //game.playingState(player, event);
                     break;
                 case PAUSED:
                     break;

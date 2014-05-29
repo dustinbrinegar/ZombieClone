@@ -24,7 +24,7 @@ public:
     void setGameState(gameStates newState);
     void mainMenuState();
     void pausedState();
-    void playingState();
+//    void playingState(Player &player,sf::Event &event);
     void loseState();
     Game();
     ~Game();
