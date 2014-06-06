@@ -1,6 +1,5 @@
 #include "Game.h"
 #include <iostream>
-#include "Player.h"
 
 Game::Game()
 {
@@ -49,10 +48,10 @@ void Game::pausedState()
 
 }
 
-/*void Game::playingState(Player &player,sf::Event &event)
+void Game::playingState(Player &player,sf::Event &event)
 {
     player.getInput(event);
-} */
+}
 
 void Game::loseState()
 {

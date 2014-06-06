@@ -24,7 +24,7 @@ int main()
                 case MAIN_MENU:
                     break;
                 case PLAYING:
-                    //game.playingState(player, event);
+                    game.playingState(player, event);
                     break;
                 case PAUSED:
                     break;

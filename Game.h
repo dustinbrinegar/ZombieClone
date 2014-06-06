@@ -3,6 +3,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "Player.h"
 
 enum gameStates
 {
@@ -24,7 +25,7 @@ public:
     void setGameState(gameStates newState);
     void mainMenuState();
     void pausedState();
-//    void playingState(Player &player,sf::Event &event);
+    void playingState(Player &player,sf::Event &event);
     void loseState();
     Game();
     ~Game();
