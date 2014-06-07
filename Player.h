@@ -9,8 +9,14 @@ class Player: public Unit
 {
 public:
     void getInput(sf::Event event);
+    void playerActions(sf::Event event, float elaspedTime);
+    void movePlayer(sf::Event event);
+    sf::Sprite getSprite();
+    Player();
 
-
+private:
+    sf::Sprite playerSprite;
+    sf::Texture playerTexture;
 };
 
 

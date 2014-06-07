@@ -7,14 +7,17 @@ class Unit
 public:
     int getHealth();
     void dealDamage(int damage);
-    int getMoveSpeed();
+    sf::Vector2f getMoveSpeed();
     void setMoveSpeed();
     int getDamage();
     void setDamage();
+    void updatePosition();
 protected:
     int health;
-    int moveSpeed;
+    sf::Vector2f moveSpeed;
     int damage;
+    sf::Vector2f acceleration;
+    sf::Sprite unit;
 };
 
 

@@ -23,15 +23,19 @@ public:
     void pause();
     gameStates getGameState();
     void setGameState(gameStates newState);
+    void setGameState(gameStates newState, Player& player);
+    void initializePlayingState( Player& player);
     void mainMenuState();
     void pausedState();
-    void playingState(Player &player,sf::Event &event);
+    void playingState(Player &player,sf::Event &event, float elaspsedTime);
     void loseState();
+    void addObjToDraw(sf::Sprite);
+    void drawSprites(sf::RenderWindow& window);
     Game();
     ~Game();
 private:
     gameStates gameState;
-    //std::vector<std::vector<> objToDraw;
+    std::vector<sf::Sprite> objToDraw;
 
 
 };
