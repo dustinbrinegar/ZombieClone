@@ -12,12 +12,16 @@ public:
     int getDamage();
     void setDamage();
     void updatePosition();
+    sf::Sprite getSprite();
+    Unit();
+
 protected:
     int health;
     sf::Vector2f moveSpeed;
     int damage;
     sf::Vector2f acceleration;
     sf::Sprite unit;
+    sf::Texture unitTexture;
 };
 
 

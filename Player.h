@@ -15,8 +15,8 @@ public:
     Player();
 
 private:
-    sf::Sprite playerSprite;
-    sf::Texture playerTexture;
+    //sf::Sprite playerSprite;
+    //sf::Texture playerTexture;
 };
 
 
