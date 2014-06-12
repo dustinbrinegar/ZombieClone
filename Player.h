@@ -11,7 +11,7 @@ public:
     void getInput(sf::Event event);
     void playerActions(sf::Event event, float elaspedTime);
     void movePlayer(sf::Event event);
-    sf::Sprite getSprite();
+    sf::Sprite* getSprite();
     Player();
 
 private:

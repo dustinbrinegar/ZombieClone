@@ -29,13 +29,13 @@ public:
     void pausedState();
     void playingState(Player &player,sf::Event &event, float elaspsedTime);
     void loseState();
-    void addObjToDraw(sf::Sprite);
+    void addObjToDraw(sf::Sprite&);
     void drawSprites(sf::RenderWindow& window);
     Game();
     ~Game();
 private:
     gameStates gameState;
-    std::vector<sf::Sprite> objToDraw;
+    std::vector<sf::Sprite*> objToDraw;
 
 
 };

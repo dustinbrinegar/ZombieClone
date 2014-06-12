@@ -53,9 +53,8 @@ int main()
         } */
 
         frameClock.restart();
-        game.addObjToDraw(player.getSprite());
+        //game.addObjToDraw(*player.getSprite());
         window.clear();
-        std::cout << "player speedx: " << player.getMoveSpeed().x <<"speed y: " << player.getMoveSpeed().y << std::endl;
         game.drawSprites(window);
         window.display();
     }

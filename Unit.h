@@ -20,7 +20,7 @@ protected:
     sf::Vector2f moveSpeed;
     int damage;
     sf::Vector2f acceleration;
-    sf::Sprite unit;
+    sf::Sprite* unit = new sf::Sprite;
     sf::Texture unitTexture;
 };
 

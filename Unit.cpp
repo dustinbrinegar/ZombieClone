@@ -3,7 +3,7 @@
 
 void Unit::updatePosition()
 {
-    unit.move(moveSpeed);
+    unit->move(moveSpeed);
 }
 
 sf::Vector2f Unit::getMoveSpeed()

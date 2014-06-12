@@ -61,7 +61,7 @@ void Game::setGameState(gameStates newGameState, Player& player)
 void Game::initializePlayingState(Player& player)
 {
     if (this->getGameState() == MAIN_MENU)
-        addObjToDraw(player.getSprite());
+        addObjToDraw(*(player.getSprite()));
 }
 
 void Game::mainMenuState()
@@ -85,18 +85,21 @@ void Game::loseState()
 
 }
 
-void Game::addObjToDraw(sf::Sprite objToAdd)
+void Game::addObjToDraw(sf::Sprite& objToAdd)
 {
-    this->objToDraw.push_back(objToAdd);
+    sf::Sprite* newobj = &objToAdd;
+    this->objToDraw.push_back(newobj);
 }
 
 void Game::drawSprites(sf::RenderWindow& window)
 {
     for (unsigned int i = 0; i < this->objToDraw.size(); i++)
     {
-        window.draw(this->objToDraw[i]);
+        window.draw(*(this->objToDraw[i]));
     }
 
-    this->objToDraw.clear();
+    std::cout << objToDraw.size() << std::endl;
+
+    //this->objToDraw.clear();
 
 }
