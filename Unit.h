@@ -1,6 +1,9 @@
 #ifndef UNIT_H_INCLUDED
 #define UNIT_H_INCLUDED
+
 #include <SFML/Graphics.hpp>
+#include "Weapon.h"
+
 
 class Unit
 {
@@ -20,8 +23,9 @@ protected:
     sf::Vector2f moveSpeed;
     int damage;
     sf::Vector2f acceleration;
-    sf::Sprite* unit = new sf::Sprite;
+    sf::Sprite* unit;
     sf::Texture unitTexture;
+    weapons currentAttack;
 };
 
 

@@ -1,22 +1,24 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
-#include "Unit.h"
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
 
-class Player: public Unit
+#include "Unit.h"
+#include "PlayerWeapons.h"
+
+
+class Player: private Unit
 {
 public:
     void getInput(sf::Event event);
     void playerActions(sf::Event event, float elaspedTime);
-    void movePlayer(sf::Event event);
+    void movePlayer(sf::Event event, float elaspedTime);
+    void playerShoot();
     sf::Sprite* getSprite();
+    void setCurrentAttack(weapons);
+    weapons getCurrentAttack();
     Player();
 
 private:
-    //sf::Sprite playerSprite;
-    //sf::Texture playerTexture;
+    PlayerWeapons* weapon;
 };
 
 

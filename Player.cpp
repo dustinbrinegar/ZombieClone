@@ -1,40 +1,40 @@
 #include "Player.h"
-#include <iostream>
-Player player;
 
 void Player::playerActions(sf::Event event, float elaspedTime)
 {
-    sf::Vector2f pos = unit->getPosition();
+    elaspedTime = (elaspedTime < 0.005 ) ? 0.005 : elaspedTime;
 
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::W && (moveSpeed.y <= 1.5 || moveSpeed.y >= -1.5)) //todo: add a single if statement for keypressed and then a switch statement for rest.
+    if (event.type == sf::Event::KeyPressed)
     {
-        //this->moveSpeed.y -= this->acceleration.y;
-        unit->move(0,-this->moveSpeed.y);
+        movePlayer(event, elaspedTime);
     }
 
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S && (moveSpeed.y <= 1.5 || moveSpeed.y >= -1.5))
-    {
-        //this->moveSpeed.y += this->acceleration.y;
-        unit->move(0,this->moveSpeed.y);
-    }
-
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::A && (moveSpeed.x <= 1.5 || moveSpeed.x >= -1.5))
-    {
-        //this->moveSpeed.x -= this->acceleration.x;
-        unit->move(-this->moveSpeed.x,0);
-    }
-
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::D && (moveSpeed.x <= 1.5 || moveSpeed.x >= -1.5))
-    {
-        //this->moveSpeed.x += this->acceleration.x;
-        unit->move(this->moveSpeed.x,0);
-    }
-
+    if (event.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(sf::Mouse::Left));
+        weapon->shoot(this->getCurrentAttack());
 }
 
-void Player::movePlayer(sf::Event event)
+void Player::movePlayer(sf::Event event, float elaspedTime)
 {
+    switch(event.key.code)
+        {
+            case sf::Keyboard::W:
+                unit->move(0, -moveSpeed.y*elaspedTime);
+                break;
 
+            case sf::Keyboard::S:
+                unit->move(0, moveSpeed.y*elaspedTime);
+                break;
+
+            case sf::Keyboard::A:
+                unit->move(-moveSpeed.x*elaspedTime, 0);
+                break;
+
+            case sf::Keyboard::D:
+                unit->move(moveSpeed.x*elaspedTime, 0);
+                break;
+            default:
+                break;
+        }
 }
 
 sf::Sprite* Player::getSprite()
@@ -42,17 +42,36 @@ sf::Sprite* Player::getSprite()
     return unit;
 }
 
+void Player::setCurrentAttack(weapons newWeapon)
+{
+    this->currentAttack = newWeapon;
+}
 
+weapons Player::getCurrentAttack()
+{
+    return this->currentAttack;
+}
+
+void Player::playerShoot()
+{
+    weapon->shoot(this->getCurrentAttack());
+}
 
 Player::Player()
 {
     //acceleration.x = .05;
     //acceleration.y = .05;
 
-    this->moveSpeed.x = 5;
-    this->moveSpeed.y = 5;
-    this->unitTexture.loadFromFile("Player.png");
+    weapon = new PlayerWeapons;
+
+    this->moveSpeed.x = 5000;
+    this->moveSpeed.y = 5000;
+
+    this->setCurrentAttack(BASIC_ATTACK);
+
+    this->unit = new sf::Sprite;
+    this->unitTexture.loadFromFile("Player.png"); //unit refers to the sprite from Unit.h since player inherits from unit.
     this->unit->setTexture(unitTexture);
     this->unit->setPosition(400,300);
-    this->unit->scale(.33,.33); //original texture is too large.
+    this->unit->scale(.33,.33); //original texture is too large dimensionally.
 }

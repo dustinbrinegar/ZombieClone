@@ -14,11 +14,6 @@ void Game::exit(sf::Window &window)
         window.close();
     }
 
-void Game::initialize()
-{
-
-}
-
 void Game::pause()
 {
     if( this->gameState != PLAYING )
@@ -98,8 +93,5 @@ void Game::drawSprites(sf::RenderWindow& window)
         window.draw(*(this->objToDraw[i]));
     }
 
-    std::cout << objToDraw.size() << std::endl;
-
-    //this->objToDraw.clear();
-
+    //std::cout << objToDraw.size() << std::endl;
 }
